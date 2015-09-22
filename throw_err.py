@@ -21,25 +21,38 @@ if len(sys.argv) != 2:
 error_type = sys.argv[1]
 
 if error_type == "assertion":
-    raise AssertionError
+#    raise AssertionError
+    assert False
 elif error_type == "io":
-    raise IOError
+#    raise IOError
+    open('non-existant_file')
 elif error_type == "import":
-    raise ImportError
+#    raise ImportError
+    import foobar
 elif error_type == "index":
-    raise IndexError
+#    raise IndexError
+    a = [0,3]
+    print(a[3])
 elif error_type == "key":
-    raise KeyError
+#    raise KeyError
+    a = {}
+    print(a['a'])
 elif error_type == "name":
-    raise NameError
+#    raise NameError
+    print(os.error)
 elif error_type == "os":
-    raise OSError
+#    raise OSError
+    import os
+    os.chdir('not_dir')
 elif error_type == "type":
-    raise TypeError
+#    raise TypeError
+    print(3 + 'three')
 elif error_type == "value":
-    raise ValueError
+#    raise ValueError
+    print(int('Hello world'))
 elif error_type == "zerodivision":
-    raise ZeroDivisionError
+#    raise ZeroDivisionError
+    print(3/0)
 else:
     sys.stderr.write("Sorry, not able to throw a(n) ")
     sys.stderr.write(error_type + " error\n")
